@@ -1,0 +1,17 @@
+name: Test CI
+on: [push, pull_request]
+
+jobs:
+  testjob:
+    name: Test Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test step 1
+        run: |
+          echo '${{github.event.pull_request.base.repo.full_name}}'
+          echo '${{github.event.pull_request.head.repo.full_name}}'
+      - name: Test step 2
+        run: test '${{github.repository}}' = 'strawberrymusicplayer/testci' && test '${{github.event.pull_request.base.repo.full_name}}' = '${{github.event.pull_request.head.repo.full_name}}' && echo 'Is not from a fork' || echo 'Is from a fork'
+      - name: Test step 3
+        if: github.repository == 'strawberrymusicplayer/testci' && github.event.pull_request.head.repo.fork == false
+        run: echo "TEST"
