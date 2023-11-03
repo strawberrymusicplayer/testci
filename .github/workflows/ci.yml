@@ -8,4 +8,4 @@ jobs:
     steps:
       - name: Test step
         if: github.repository == 'strawberrymusicplayer/testci' && github.event.pull_request.head.repo.fork == false
-        run: echo "TEST"
+        run: echo "TEST2"
