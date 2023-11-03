@@ -1,0 +1,11 @@
+name: Test CI
+on: [push, pull_request]
+
+jobs:
+  testjob:
+    name: Test Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test step
+        if: github.repository == 'strawberrymusicplayer/testci' && github.event.pull_request.head.repo.fork == false
+        run: echo "TEST"
