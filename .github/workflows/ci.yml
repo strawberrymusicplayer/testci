@@ -14,4 +14,4 @@ jobs:
         run: test '${{github.repository}}' = 'strawberrymusicplayer/testci' && test '${{github.event.pull_request.base.repo.full_name}}' = '${{github.event.pull_request.head.repo.full_name}}' && echo 'Is not from a fork' || echo 'Is from a fork'
       - name: Test step 3
         if: github.repository == 'strawberrymusicplayer/testci' && github.event.pull_request.head.repo.fork == false
-        run: echo "TEST"
+        run: echo "TEST 2"
